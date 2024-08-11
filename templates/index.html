@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Matcher</title>
+</head>
+<body>
+    <h1>Welcome to Mood Matcher</h1>
+    <form action="/recommend" method="post">
+        <label for="user_input">Enter User ID:</label>
+        <input type="text" id="user_input" name="user_input" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if user_recommendations %}
+        <h2>User-Based Recommendations:</h2>
+        <ul>
+            {% for recommendation in user_recommendations %}
+                <li>{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if item_recommendations %}
+        <h2>Item-Based Recommendations:</h2>
+        <ul>
+            {% for recommendation in item_recommendations %}
+                <li>{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
