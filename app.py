@@ -17,11 +17,11 @@ def home():
 def recommend():
     # Get the user input
     user_input = request.form['user_input']
-    
+
     # Perform recommendation logic (for both user and item-based systems)
     user_recommendations = user_final_rating.loc[user_input].sort_values(ascending=False).head(5).index
     item_recommendations = item_final_rating.loc[user_input].sort_values(ascending=False).head(5).index
-    
+
     return render_template('index.html', user_recommendations=user_recommendations, item_recommendations=item_recommendations)
 
 if __name__ == '__main__':
