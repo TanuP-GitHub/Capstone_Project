@@ -1,3 +1,4 @@
+
 import pickle
 import numpy as np
 
@@ -13,7 +14,7 @@ def get_user_recommendations(user_input):
         recommendations = user_final_rating.loc[user_input].sort_values(ascending=False).head(5).index
         return recommendations.tolist()
     except KeyError:
-        return None
+        return ["No user found"]
 
 def get_item_recommendations(item_input):
     """
@@ -23,4 +24,4 @@ def get_item_recommendations(item_input):
         recommendations = item_final_rating.loc[item_input].sort_values(ascending=False).head(5).index
         return recommendations.tolist()
     except KeyError:
-        return None
+        return ["No items found"]
